@@ -1,0 +1,19 @@
+{
+  "name": "awesomechat",
+  "version": "0.1.0",
+  "description": "simple chat app",
+  "main": "web/static/js/app.js",
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "babel": "^5.5.4",
+    "babel-core": "^5.5.3",
+    "babel-loader": "^5.2.2",
+    "node-libs-browser": "^0.5.2",
+    "react-hot-loader": "^1.2.7",
+    "webpack": "^1.9.13"
+  },
+  "author": "Justin Carter",
+  "license": "ISC"
+}
