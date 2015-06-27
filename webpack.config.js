@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
     entry: "./web/static/js/app.js",
     output: {
@@ -9,6 +11,7 @@ module.exports = {
         {
           test: /\.jsx?$/,
           loaders: ['react-hot', 'babel'],
+          include: path.join(__dirname, 'web/static/js')
         }
         // {
         //   test: /\.scss$/,
