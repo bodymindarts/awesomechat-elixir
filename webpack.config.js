@@ -6,17 +6,21 @@ module.exports = {
         path: "./priv/static/js",
         filename: "bundle.js"
     },
+    resolve: {
+      extensions: ['', '.js', '.jsx', '.scss']
+    },
     module: {
       loaders: [
         {
           test: /\.jsx?$/,
-          loaders: ['react-hot', 'babel'],
+          loaders: ['babel'],
           include: path.join(__dirname, 'web/static/js')
+        },
+        {
+          test: /\.scss$/,
+          loaders: ['style', 'css', 'sass?outputStyle=expanded'],
+          include: path.join(__dirname, 'web/static/css')
         }
-        // {
-        //   test: /\.scss$/,
-        //   loaders: ['style', 'css', 'sass?outputStyle=expanded']
-        // }
       ]
     }
 };

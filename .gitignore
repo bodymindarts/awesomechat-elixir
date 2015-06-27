@@ -4,7 +4,8 @@
 /*.ez
 
 #webpack output
-/priv/static/js/bundle.js
+/priv
+!/priv/static/js/phoenix.js
 
 /node_modules
 
