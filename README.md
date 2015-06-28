@@ -9,7 +9,7 @@ Clone repository `git clone https://github.com/bodymindarts/awesomechat-elixir.g
 
 `cd awesomechat-elixir`
 
-Install dependencies `mix deps.get`
+Install dependencies `npm install` `mix deps.get`
 
 Start Redis on localhost
 
