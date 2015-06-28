@@ -17,7 +17,7 @@ defmodule AwesomeChat.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {AwesomeChat, []},
-     applications: [:phoenix, :phoenix_html, :cowboy, :logger]]
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger, :poolboy]]
   end
 
   # Specifies which paths to compile per environment
@@ -33,6 +33,8 @@ defmodule AwesomeChat.Mixfile do
      {:phoenix_live_reload, "~> 0.4", only: :dev},
      {:cowboy, "~> 1.0"},
      {:exredis, ">= 0.1.1"},
-     {:poison, "~> 1.4.0"}]
+     {:poison, "~> 1.4.0"},
+     {:poolboy, "~> 1.4"}
+   ]
   end
 end
