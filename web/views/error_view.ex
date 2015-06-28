@@ -1,5 +1,5 @@
-defmodule Awesomechat.ErrorView do
-  use Awesomechat.Web, :view
+defmodule AwesomeChat.ErrorView do
+  use AwesomeChat.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

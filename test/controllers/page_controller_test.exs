@@ -1,5 +1,5 @@
-defmodule Awesomechat.PageControllerTest do
-  use Awesomechat.ConnCase
+defmodule AwesomeChat.PageControllerTest do
+  use AwesomeChat.ConnCase
 
   test "GET /" do
     conn = get conn(), "/"

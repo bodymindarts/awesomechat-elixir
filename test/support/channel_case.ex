@@ -1,4 +1,4 @@
-defmodule Awesomechat.ChannelCase do
+defmodule AwesomeChat.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,19 +21,19 @@ defmodule Awesomechat.ChannelCase do
       use Phoenix.ChannelTest
 
       # Alias the data repository and import query/model functions
-      alias Awesomechat.Repo
+      alias AwesomeChat.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
 
       # The default endpoint for testing
-      @endpoint Awesomechat.Endpoint
+      @endpoint AwesomeChat.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Awesomechat.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(AwesomeChat.Repo, [])
     end
 
     :ok

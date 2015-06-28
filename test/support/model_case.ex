@@ -1,4 +1,4 @@
-defmodule Awesomechat.ModelCase do
+defmodule AwesomeChat.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -17,16 +17,16 @@ defmodule Awesomechat.ModelCase do
   using do
     quote do
       # Alias the data repository and import query/model functions
-      alias Awesomechat.Repo
+      alias AwesomeChat.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
-      import Awesomechat.ModelCase
+      import AwesomeChat.ModelCase
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Awesomechat.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(AwesomeChat.Repo, [])
     end
 
     :ok

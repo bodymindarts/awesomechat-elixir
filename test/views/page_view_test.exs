@@ -1,3 +1,3 @@
-defmodule Awesomechat.PageViewTest do
-  use Awesomechat.ConnCase, async: true
+defmodule AwesomeChat.PageViewTest do
+  use AwesomeChat.ConnCase, async: true
 end

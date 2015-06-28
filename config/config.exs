@@ -6,12 +6,12 @@
 use Mix.Config
 
 # Configures the endpoint
-config :awesomechat, Awesomechat.Endpoint,
+config :awesomechat, AwesomeChat.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "QK9xKkKOsb2vM6jiptdipUj85C9Gf/uKQnzj1MVeE88/5FswCxQWnRZw79Zu58ld",
   debug_errors: false,
-  pubsub: [name: Awesomechat.PubSub,
+  pubsub: [name: AwesomeChat.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

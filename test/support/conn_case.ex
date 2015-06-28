@@ -1,4 +1,4 @@
-defmodule Awesomechat.ConnCase do
+defmodule AwesomeChat.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -21,21 +21,21 @@ defmodule Awesomechat.ConnCase do
       use Phoenix.ConnTest
 
       # Alias the data repository and import query/model functions
-      alias Awesomechat.Repo
+      alias AwesomeChat.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
       # Import URL helpers from the router
-      import Awesomechat.Router.Helpers
+      import AwesomeChat.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Awesomechat.Endpoint
+      @endpoint AwesomeChat.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(Awesomechat.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(AwesomeChat.Repo, [])
     end
 
     :ok

@@ -1,4 +1,4 @@
-defmodule Awesomechat.Endpoint do
+defmodule AwesomeChat.Endpoint do
   use Phoenix.Endpoint, otp_app: :awesomechat
 
   # Serve at "/" the static files from "priv/static" directory.
@@ -31,5 +31,5 @@ defmodule Awesomechat.Endpoint do
     key: "_awesomechat_key",
     signing_salt: "O+Sowwch"
 
-  plug :router, Awesomechat.Router
+  plug :router, AwesomeChat.Router
 end

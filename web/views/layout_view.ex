@@ -1,3 +1,3 @@
-defmodule Awesomechat.LayoutView do
-  use Awesomechat.Web, :view
+defmodule AwesomeChat.LayoutView do
+  use AwesomeChat.Web, :view
 end

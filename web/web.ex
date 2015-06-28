@@ -1,12 +1,12 @@
-defmodule Awesomechat.Web do
+defmodule AwesomeChat.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Awesomechat.Web, :controller
-      use Awesomechat.Web, :view
+      use AwesomeChat.Web, :controller
+      use AwesomeChat.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -27,12 +27,12 @@ defmodule Awesomechat.Web do
       use Phoenix.Controller
 
       # Alias the data repository and import query/model functions
-      alias Awesomechat.Repo
+      alias AwesomeChat.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
       # Import URL helpers from the router
-      import Awesomechat.Router.Helpers
+      import AwesomeChat.Router.Helpers
     end
   end
 
@@ -44,7 +44,7 @@ defmodule Awesomechat.Web do
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
 
       # Import URL helpers from the router
-      import Awesomechat.Router.Helpers
+      import AwesomeChat.Router.Helpers
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
@@ -62,7 +62,7 @@ defmodule Awesomechat.Web do
       use Phoenix.Channel
 
       # Alias the data repository and import query/model functions
-      alias Awesomechat.Repo
+      alias AwesomeChat.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 

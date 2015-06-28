@@ -1,4 +1,4 @@
-defmodule Awesomechat.Mixfile do
+defmodule AwesomeChat.Mixfile do
   use Mix.Project
 
   def project do
@@ -16,7 +16,7 @@ defmodule Awesomechat.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [mod: {Awesomechat, []},
+    [mod: {AwesomeChat, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
                     :phoenix_ecto, :postgrex]]
   end

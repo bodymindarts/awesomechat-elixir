@@ -1,9 +1,10 @@
-defmodule Awesomechat.PageController do
-  use Awesomechat.Web, :controller
+defmodule AwesomeChat.PageController do
+  use AwesomeChat.Web, :controller
 
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html"
+    conn
+    |> render("index.html")
   end
 end

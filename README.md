@@ -1,4 +1,4 @@
-# Awesomechat
+# AwesomeChat
 
 To start your new Phoenix application:
 
