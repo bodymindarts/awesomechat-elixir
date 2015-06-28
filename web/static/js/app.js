@@ -26,8 +26,6 @@ var render = function() {
                document.getElementById('awesome-chat'));
 };
 
-state.on('swap', function() {
-  render();
-});
+state.on('swap', () => render() );
 
 render();
