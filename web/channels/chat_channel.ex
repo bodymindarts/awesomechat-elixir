@@ -1,6 +1,6 @@
 defmodule AwesomeChat.ChatChannel do
   use AwesomeChat.Web, :channel
-  alias AwesomeChat.Storage
+  alias AwesomeChat.Storage.Worker
 
   @topic "chat"
 
@@ -9,29 +9,26 @@ defmodule AwesomeChat.ChatChannel do
   end
 
   def handle_in("new_msg", msg, socket) do
-    redis = Exredis.start
+    # redis = Exredis.start
+    {:ok, worker} = Worker.start_link
 
     msg
-    |> Storage.store_msg(@topic, redis)
+    |> Worker.store_msg(@topic, worker)
     |> broadcast_msg(socket)
-
-    Exredis.stop redis
 
     {:noreply, socket}
   end
 
   def handle_in("sync", %{"history" => history}, socket) do
-    redis = Exredis.start
+    {:ok, worker} = Worker.start_link
 
     @topic
-    |> Storage.all(redis)
+    |> Worker.all(worker)
     |> push_history(socket)
 
     history
-    |> Enum.map(&Storage.store_msg(&1, @topic, redis))
+    |> Enum.map(&Worker.store_msg(&1, @topic, worker))
     |> Enum.map(&broadcast_msg(&1, socket))
-
-    Exredis.stop redis
 
     {:noreply, socket}
   end
