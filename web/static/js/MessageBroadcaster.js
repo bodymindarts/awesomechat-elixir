@@ -1,20 +1,18 @@
 'use strict';
 
 module.exports = {
-  'init': function(appState, socket) {
+  'init': function(appState, channel) {
 
     var pendingMessages = appState.reference(['history', 'pending']);
 
-    socket.onopen = function() {
+    channel.join().receive("ok", channel => {
       pendingMessages.cursor().deref().
-        forEach((message) => socket.send(JSON.stringify(message)));
-    };
+        forEach((message) => channel.push({ body: message }));
+    });
 
     pendingMessages.observe('change', function() {
-      if(socket.readyState === WebSocket.OPEN) {
-        pendingMessages.cursor().deref().
-          forEach((message) => socket.send(JSON.stringify(message)));
-      }
+      pendingMessages.cursor().deref().
+        forEach((message) => channel.push('new_msg', { body: message }));
     });
   }
 };

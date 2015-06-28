@@ -10,13 +10,12 @@ require('./handlers/ChatLoginHandler').init(state);
 require('./handlers/ChatLogoutHandler').init(state);
 require('./handlers/ChatInputHandler').init(state);
 
-// var ReconnectingWebSocket = require('ReconnectingWebSocket');
-// var socket = new ReconnectingWebSocket(
-//   'ws://localhost:10000', null, { reconnectInterval: 500, reconnectDecay: 1.1 }
-// );
+let socket = new Phoenix.Socket("/ws");
+socket.connect();
+let channel = socket.chan("chat", {})
 
-// require('./MessageReceiver').init(state, socket);
-// require('./MessageBroadcaster').init(state, socket);
+require('./MessageReceiver').init(state, channel);
+require('./MessageBroadcaster').init(state, channel);
 
 var React = require('react');
 var ChatApp = require('./components/ChatApp');

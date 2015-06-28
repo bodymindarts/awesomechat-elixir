@@ -18,7 +18,7 @@ defmodule AwesomeChat.Router do
     get "/", PageController, :index
   end
 
-  socket "ws", AwesomeChat do
-    channel "/chat", ChatChannel
+  socket "/ws", AwesomeChat do
+    channel "chat", ChatChannel
   end
 end
