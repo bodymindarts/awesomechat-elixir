@@ -5,14 +5,13 @@ module.exports = {
 
     var pendingMessages = appState.reference(['history', 'pending']);
 
-    channel.join().receive("ok", chan=> {
-      pendingMessages.cursor().deref().
-        forEach((message) => chan.push({ body: message }));
+    channel.join().receive("ok", () => {
+      channel.push('sync', {history: pendingMessages.cursor().deref()})
     });
 
     pendingMessages.observe('change', function() {
       pendingMessages.cursor().deref().
-        forEach((message) => channel.push('new_msg', { body: message }));
+        forEach((message) => channel.push('new_msg', message));
     });
   }
 };
