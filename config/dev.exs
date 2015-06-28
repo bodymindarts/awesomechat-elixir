@@ -25,11 +25,3 @@ config :awesomechat, AwesomeChat.Endpoint,
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
-
-# Configure your database
-config :awesomechat, AwesomeChat.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "awesomechat_dev",
-  size: 10 # The amount of database connections in the pool

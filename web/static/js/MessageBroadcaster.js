@@ -5,9 +5,9 @@ module.exports = {
 
     var pendingMessages = appState.reference(['history', 'pending']);
 
-    channel.join().receive("ok", channel => {
+    channel.join().receive("ok", chan=> {
       pendingMessages.cursor().deref().
-        forEach((message) => channel.push({ body: message }));
+        forEach((message) => chan.push({ body: message }));
     });
 
     pendingMessages.observe('change', function() {

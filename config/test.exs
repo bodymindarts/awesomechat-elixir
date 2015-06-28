@@ -8,11 +8,3 @@ config :awesomechat, AwesomeChat.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :awesomechat, AwesomeChat.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "awesomechat_test",
-  size: 1 # Use a single connection for transactional tests
