@@ -9,8 +9,10 @@ defmodule AwesomeChat do
     children = [
       # Start the endpoint when the application starts
       supervisor(AwesomeChat.Endpoint, []),
+
       # Here you could define other workers and supervisors as children
       # worker(AwesomeChat.Worker, [arg1, arg2, arg3]),
+      worker(AwesomeChat.Storage, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

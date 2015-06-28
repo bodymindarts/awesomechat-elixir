@@ -1,7 +1,7 @@
 defmodule AwesomeChat.Storage.Worker do
   use GenServer
 
-  def start_link do
+  def start_link(_arg) do
     GenServer.start_link __MODULE__, []
   end
 
@@ -9,11 +9,11 @@ defmodule AwesomeChat.Storage.Worker do
     {:ok, redis} = Exredis.start_link
   end
 
-  def all(topic, worker) do
+  def all(worker, topic) do
     GenServer.call worker, {:all, topic}
   end
 
-  def store_msg(msg, topic, worker) do
+  def store_msg(worker, msg, topic) do
     GenServer.call worker, {:store, msg, topic}
   end
 
