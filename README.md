@@ -5,9 +5,9 @@ This is the AwesomeChat chat application ported to Elixir using the Phoenix web-
 
 Install elixir `brew install elixir`
 
-Clone repository:
+Clone repository `git clone https://github.com/bodymindarts/awesomechat-elixir.git`
 
-`git clone https://github.com/bodymindarts/awesomechat-elixir.git && cd awesomechat-elixir`
+`cd awesomechat-elixir`
 
 Install dependencies `mix deps.get`
 
