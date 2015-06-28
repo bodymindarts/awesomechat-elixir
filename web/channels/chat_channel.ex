@@ -11,8 +11,8 @@ defmodule AwesomeChat.ChatChannel do
   def handle_in("new_msg", msg, socket) do
     redis = Exredis.start
 
-    redis
-    |> Storage.store_msg(@topic, msg)
+    msg
+    |> Storage.store_msg(@topic, redis)
     |> broadcast_msg(socket)
 
     Exredis.stop redis
@@ -23,10 +23,13 @@ defmodule AwesomeChat.ChatChannel do
   def handle_in("sync", %{"history" => history}, socket) do
     redis = Exredis.start
 
-    push_history(redis, socket)
+    @topic
+    |> Storage.all(redis)
+    |> push_history(socket)
+
     history
-    |> Enum.map(&(Storage.store_msg(redis, @topic, &1)))
-    |> Enum.map(&(broadcast_msg(&1, socket)))
+    |> Enum.map(&Storage.store_msg(&1, @topic, redis))
+    |> Enum.map(&broadcast_msg(&1, socket))
 
     Exredis.stop redis
 
@@ -38,14 +41,10 @@ defmodule AwesomeChat.ChatChannel do
     {:noreply, socket}
   end
 
+  defp broadcast_msg({:ok, msg}, socket), do: broadcast!(socket, "new_msg", msg)
+  defp broadcast_msg(_no_msg, _socket), do: nil
 
-  def broadcast_msg({:ok, msg}, socket) do
-    broadcast! socket, "new_msg", msg
-  end
-  def broadcast_msg(false, socket) do
-  end
-
-  def push_history(redis, socket) do
-    push socket, "sync", %{"history" => Storage.all(redis, @topic)}
+  defp push_history(history, socket) do
+    push socket, "sync", %{"history" => history}
   end
 end
