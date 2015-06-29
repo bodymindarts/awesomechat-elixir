@@ -6,7 +6,7 @@ defmodule AwesomeChat.Storage.Worker do
   end
 
   def init(_args) do
-    {:ok, redis} = Exredis.start_link
+    {:ok, :no_conn}
   end
 
   def all(worker, topic) do
@@ -20,6 +20,11 @@ defmodule AwesomeChat.Storage.Worker do
   import Exredis.Api, only: [get: 2, set: 3, zadd: 4, zrange: 4]
   import Poison, only: [decode!: 1]
   import Poison.Encoder, only: [encode: 2]
+
+  def handle_call(msg, from, :no_conn) do
+    {:ok, redis} = Exredis.start_link
+    handle_call(msg, from, redis)
+  end
 
   def handle_call({:all, topic}, _from, redis) do
     result = zrange(redis, topic <> ":history", 0, -1)
