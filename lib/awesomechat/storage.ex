@@ -3,7 +3,7 @@ defmodule AwesomeChat.Storage do
 
   @pool_name :storage_pool
 
-  def start_link do
+  def start_link() do
     Application.ensure_all_started(:poolboy)
 
     pool_options = [
