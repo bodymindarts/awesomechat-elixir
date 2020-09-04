@@ -7,7 +7,7 @@
     "immstruct": "^1.4.1",
     "immutable": "^3.7.3",
     "omniscient": "^3.1.0",
-    "react": "^0.13.3",
+    "react": "^16.13.1",
     "node-sass": "^3.8.0"
   },
   "devDependencies": {
